@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .post {
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 2rem;
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .post h2 {
+            margin-bottom: 1rem;
+        }
+
+        .post p {
+            margin-bottom: 1rem;
+        }
+
+        .post a {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .contact-form button {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Meu Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="loadPage('home')">Início</a></li>
+                    <li><a href="#" onclick="loadPage('contact')">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container">
+        <!-- O conteúdo será carregado dinamicamente aqui -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Meu Blog. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const pages = {
+            home: `
+                <h1>Bem-vindo ao Meu Blog</h1>
+                <div class="posts">
+                    <div class="post">
+                        <h2>Primeiro Post</h2>
+                        <p>Este é o conteúdo do primeiro post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="#" onclick="loadPage('post1')">Leia mais</a>
+                    </div>
+                    <div class="post">
+                        <h2>Segundo Post</h2>
+                        <p>Este é o conteúdo do segundo post. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="#" onclick="loadPage('post2')">Leia mais</a>
+                    </div>
+                    <div class="post">
+                        <h2>Terceiro Post</h2>
+                        <p>Este é o conteúdo do terceiro post. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <a href="#" onclick="loadPage('post3')">Leia mais</a>
+                    </div>
+                </div>
+            `,
+            post1: `
+                <h1>Primeiro Post</h1>
+                <p>Este é o conteúdo completo do primeiro post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquam tincidunt, nisl nunc tincidunt urna, id lacinia nunc nunc id elit. Sed euismod, nunc id aliquam tincidunt, nisl nunc tincidunt urna, id lacinia nunc nunc id elit.</p>
+                <a href="#" onclick="loadPage('home')">Voltar</a>
+            `,
+            post2: `
+                <h1>Segundo Post</h1>
+                <p>Este é o conteúdo completo do segundo post. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a href="#" onclick="loadPage('home')">Voltar</a>
+            `,
+            post3: `
+                <h1>Terceiro Post</h1>
+                <p>Este é o conteúdo completo do terceiro post. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a href="#" onclick="loadPage('home')">Voltar</a>
+            `,
+            contact: `
+                <h1>Entre em Contato</h1>
+                <form class="contact-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            `
+        };
+
+        function loadPage(pageName) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = pages[pageName];
+        }
+
+        // Carrega a página inicial por padrão
+        loadPage('home');
+    </script>
+</body>
+
+</html>
